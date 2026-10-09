@@ -23,7 +23,8 @@ function clearResults() {
   currentBalances = [];
 }
 function isPlausiblePiAddress(address) {
-  return /^G[A-Z2-7]{55}$/.test(address);
+  const cleanedAddress = String(address || "").trim().toUpperCase();
+  return /^G[A-Z2-7]{55}$/.test(cleanedAddress);
 }
 async function copyText(text, button) {
   try {
