@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1020">
+  <meta name="description" content="Look up public Pi Network claimable balance records by wallet address.">
+  <title>Pi Network — Claimable Balances</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/script.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="Pi Network Claimable Balances home">
+        <span class="brand-mark" aria-hidden="true">π</span>
+        <span class="brand-copy"><strong>Pi Network</strong><span>Claimable Balances</span></span>
+      </a>
+      <div class="topbar-note"><span>Check your claimable Pi balances</span><span>quickly and easily</span><i></i></div>
+    </header>
+
+    <main>
+      <section class="lookup-hero" aria-labelledby="page-title">
+        <p class="eyebrow">PI NETWORK · MAINNET</p>
+        <h1 id="page-title">Enter your Pi wallet address</h1>
+        <p class="intro">Paste your Pi wallet address and click Fetch to see all claimable balances<br class="desktop-break"> for this wallet (up to 10 results).</p>
+        <form id="lookup-form" class="lookup-form">
+          <label class="sr-only" for="wallet">Public Pi wallet address</label>
+          <div class="input-wrap"><span aria-hidden="true">▣</span><input id="wallet" name="wallet" type="text" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="Paste your Pi wallet address here…" required></div>
+          <button type="button" id="paste-button" class="button secondary"><span aria-hidden="true">▢</span> Paste</button>
+          <button type="submit" id="fetch-button" class="button primary"><span aria-hidden="true">⌕</span> Fetch</button>
+        </form>
+        <p class="security-note">Public address only. Never enter your passphrase or private key.</p>
+      </section>
+
+      <section id="status" class="status" role="status" aria-live="polite" hidden></section>
+
+      <section id="results-section" class="results-panel" hidden>
+        <div class="panel-heading">
+          <div class="panel-title">
+            <span class="heading-icon" aria-hidden="true">▦</span>
+            <div><h2>Claimable Balances</h2><p id="result-count">Balances found</p></div>
+          </div>
+          <button id="copy-all-button" class="button primary copy-all" type="button"><span aria-hidden="true">▢</span> Copy all</button>
+        </div>
+        <div class="records-header" aria-hidden="true">
+          <span>Balance ID</span><span>Amount (Pi)</span><span>Last modified</span>
+        </div>
+        <div id="results" class="results"></div>
+      </section>
+
+      <section id="empty-state" class="empty-state" hidden>
+        <span class="empty-icon" aria-hidden="true">⌕</span>
+        <h2>No claimable balances found</h2>
+        <p>Try another public Pi wallet address.</p>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-brand"><span class="footer-pi">π</span><span>Pi Network</span><b>·</b><span>Claimable Balances Viewer</span></div>
+      <p>This tool uses the Pi Mainnet API to fetch public claimable-balance records.</p>
+      <p>No login, no database, and no API keys required.</p>
+    </footer>
+  </div>
+</body>
+</html>
