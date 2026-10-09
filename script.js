@@ -144,7 +144,7 @@ form.addEventListener("submit", async (event) => {
   fetchButton.innerHTML = "<span>◌</span> Fetching…";
   showStatus("Loading claimable balances…");
   try {
-    const response = await fetch(`/api/balances?wallet=${encodeURIComponent(wallet)}`, {
+    const response = await fetch(`/api/balances?claimant=${encodeURIComponent(wallet)}`, {
       headers: { "Accept": "application/json" }
     });
     let payload;
