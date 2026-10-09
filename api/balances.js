@@ -6,7 +6,7 @@ module.exports = async (req, res) => {
     });
   }
 
-  const claimant = String(req.query.claimant || "").trim();
+  const claimant = String(req.query.claimant || "").trim().toUpperCase();
 
   if (!/^G[A-Z2-7]{55}$/.test(claimant)) {
     return res.status(400).json({
