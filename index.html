@@ -7,6 +7,7 @@
   <meta name="description" content="Look up public Pi Network claimable balance records by wallet address.">
   <title>Pi Balance Explorer</title>
   <link rel="stylesheet" href="/style.css">
+  <script src="/monitoring.js" defer></script>
   <script src="/script.js" defer></script>
 </head>
 <body>
@@ -43,8 +44,16 @@
           </div>
           <button id="copy-all-button" class="button primary copy-all" type="button"><span aria-hidden="true">▢</span> Copy all</button>
         </div>
+        <div class="monitor-toolbar">
+          <p id="refresh-state">Automatic refresh starts after the first lookup.</p>
+          <div class="monitor-actions">
+            <button id="refresh-now-button" class="button secondary" type="button" disabled>Refresh now</button>
+            <button id="toggle-refresh-button" class="button secondary" type="button" disabled>Pause auto-refresh</button>
+          </div>
+        </div>
+        <p id="change-summary" class="change-summary" role="status" aria-live="polite" hidden></p>
         <div class="records-header" aria-hidden="true">
-          <span>Balance ID</span><span>Amount (Pi)</span><span>Last modified</span>
+          <span>Balance ID</span><span>Amount (Pi)</span><span>Last modified (WAT)</span>
         </div>
         <div id="results" class="results"></div>
       </section>
